@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 import streamlit as st
 import tensorflow as tf
-from keras.models import load_model
+from keras import load_model
 
 # Load your trained model
 model = load_model('pneumonia_detection_model.h5')  # Update the model path as necessary
