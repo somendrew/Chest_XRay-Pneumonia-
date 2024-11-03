@@ -1,4 +1,1 @@
-numpy
-opencv_python
-streamlit
-tensorflow
+opencv_python==4.10.0.84
