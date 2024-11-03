@@ -1,0 +1,25 @@
+name: Build and Test Docker Image
+
+on:
+  push:
+    branches:
+      - main  # Change this to your default branch name if necessary
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Build Docker image
+      run: |
+        docker build . -t my-streamlit-app
+
+    - name: Run Docker container
+      run: |
+        docker run -d -p 8501:8501 my-streamlit-app
