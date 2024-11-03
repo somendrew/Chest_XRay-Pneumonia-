@@ -1,5 +1,17 @@
+import subprocess
+import sys
+
+def install(package):
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', package])
+
+try:
+    import cv2
+except ImportError:
+    print("cv2 not found, installing...")
+    install('opencv-python')
+    import cv2
+
 import os
-import cv2
 import numpy as np
 import streamlit as st
 import tensorflow as tf
